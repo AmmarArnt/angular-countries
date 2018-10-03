@@ -10,6 +10,7 @@ import {
   MatFormFieldModule,
   MatCheckboxModule,
   MatInputModule,
+  MatSnackBarModule
 } from '@angular/material';
 
 @NgModule({
@@ -24,6 +25,7 @@ import {
     MatFormFieldModule,
     MatCheckboxModule,
     MatInputModule,
+    MatSnackBarModule
   ],
   exports: [
     BrowserAnimationsModule,
@@ -36,6 +38,7 @@ import {
     MatFormFieldModule,
     MatCheckboxModule,
     MatInputModule,
+    MatSnackBarModule
   ]
 })
 export class MaterialDesignModule {

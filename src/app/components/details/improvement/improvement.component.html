@@ -1,3 +1,33 @@
-<p>
-  improvement works!
-</p>
+<mat-card class="app-card">
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <mat-card-header class="app-header">
+      <h3 class="app-headline">
+        <mat-icon class="app-icon">send</mat-icon>
+        Improvement proposal
+      </h3>
+    </mat-card-header>
+    <mat-card-content class="app-card--content">
+      <p>You have find an error. Please let us know.</p>
+
+      <mat-form-field class="improvement-card--form-control">
+        <input matInput placeholder="Name" name="name" ngModel required>
+        <mat-error *ngIf="f.controls['name']?.invalid">Your name is required.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="improvement-card--form-control">
+        <input matInput placeholder="E-Mail" name="email" ngModel required email>
+        <mat-error *ngIf="f.controls['email']?.hasError('required')">Your e-mail address is required.</mat-error>
+        <mat-error *ngIf="f.controls['email']?.hasError('email')">This is not a valid e-mail address.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="improvement-card--form-control">
+        <textarea matInput placeholder="Message" name="message" ngModel required
+                  class="improvement-card--textarea"></textarea>
+        <mat-error *ngIf="f.controls['message']?.invalid">Your message is required.</mat-error>
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions class="improvement-card--actions">
+      <button mat-stroked-button type="submit" class="submit-button">Send</button>
+    </mat-card-actions>
+  </form>
+</mat-card>
