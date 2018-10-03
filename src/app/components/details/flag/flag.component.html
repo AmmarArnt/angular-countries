@@ -1,3 +1,4 @@
-<p>
-  flag works!
-</p>
+<mat-card class="flag-card">
+  <img mat-card-image [src]="country?.flag" alt="Flag from {{country?.name}}" *ngIf="country != null"
+       class="flag-image">
+</mat-card>
