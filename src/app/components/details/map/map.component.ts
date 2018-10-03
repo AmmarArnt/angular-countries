@@ -2,7 +2,6 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Country} from '../../../shared/entities/country.entity';
 import {googleMapStyle, iconRed, zoomLevels} from '../../../shared/constants/map';
 import {BorderCoordinates} from '../../../shared/entities/border-coordinates.entity';
-import {BorderServiceService} from '../../../shared/services/border-service.service';
 import {BorderService} from '../../../shared/services/border.service';
 
 @Component({
