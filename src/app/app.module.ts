@@ -14,6 +14,7 @@ import {MapComponent} from './components/details/map/map.component';
 import {SocialMediaComponent} from './components/details/social-media/social-media.component';
 import {MaterialDesignModule} from './shared/module/material-design.module';
 import {AppRoutingModule} from './shared/module/app-routing.module';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {AppRoutingModule} from './shared/module/app-routing.module';
     FlagComponent,
     ImprovementComponent,
     MapComponent,
-    SocialMediaComponent
+    SocialMediaComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
