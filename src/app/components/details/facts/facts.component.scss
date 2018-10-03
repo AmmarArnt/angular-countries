@@ -1,0 +1,51 @@
+@import './../../../../styles/utils/variables';
+
+.fact-card--form-control {
+  .mat-input-element:disabled {
+    color: $colorBlack;
+  }
+
+  /* TODO: ::ng-deep is deprecated */
+  ::ng-deep {
+    .mat-form-field-label {
+      color: $colorBlack;
+    }
+    .mat-form-field-underline {
+      background-image: none;
+    }
+  }
+}
+
+.facts-card--list-label {
+  font-size: 11px;
+}
+
+.facts-card--list-item {
+  align-content: center;
+  align-items: center;
+  margin: 0 0 15px 0;
+
+  /* TODO: ::ng-deep is deprecated */
+  ::ng-deep {
+
+    .mat-checkbox-disabled {
+      .mat-checkbox-label {
+        color: $colorBlack;
+      }
+    }
+
+    .mat-checkbox-disabled.mat-checkbox-checked {
+      .mat-checkbox-background {
+        background-color: $colorBlack;
+      }
+    }
+
+    .mat-checkbox-inner-container {
+      display: none;
+    }
+  }
+
+  > * {
+    margin-right: 1em;
+  }
+}
