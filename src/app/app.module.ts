@@ -14,7 +14,8 @@ import {MapComponent} from './components/details/map/map.component';
 import {SocialMediaComponent} from './components/details/social-media/social-media.component';
 import {MaterialDesignModule} from './shared/module/material-design.module';
 import {AppRoutingModule} from './shared/module/app-routing.module';
-import { HeaderComponent } from './components/header/header.component';
+import {HeaderComponent} from './components/header/header.component';
+import {SocialMediaModule} from './shared/social-media/social-media.module';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { HeaderComponent } from './components/header/header.component';
     FormsModule,
     HttpClientModule,
     MaterialDesignModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SocialMediaModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -7,6 +7,8 @@ import {Component, OnInit} from '@angular/core';
 })
 export class SocialMediaComponent implements OnInit {
 
+  url = encodeURI(window.location.href);
+
   constructor() {
   }
 

@@ -1,3 +1,11 @@
-<p>
-  social-media works!
-</p>
+<mat-card>
+  <div class="row row__social-buttons">
+    <app-fb-like [url]="url"></app-fb-like>
+  </div>
+  <div class="row row__social-buttons">
+    <app-google-plus [url]="url"></app-google-plus>
+  </div>
+  <div class="row row__social-buttons">
+    <app-tweet [url]="url" text="Awsome country!"></app-tweet>
+  </div>
+</mat-card>

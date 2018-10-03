@@ -1,0 +1,8 @@
+.row__social-buttons {
+  margin: 0 auto;
+  width: fit-content;
+
+  &:not(:last-child) {
+    padding-bottom: 1em;
+  }
+}
