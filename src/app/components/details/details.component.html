@@ -1,3 +1,21 @@
-<p>
-  details works!
-</p>
+<div class="row">
+
+  {{(country | async)?.name}}
+
+  <div class="col-xs-12">
+    <app-facts [country]="country | async"></app-facts>
+  </div>
+
+  <div class="col-xs-12">
+    <app-map [country]="country | async"></app-map>
+  </div>
+
+  <div class="col-xs-12">
+    <app-flag [country]="country | async"></app-flag>
+    <app-social-media></app-social-media>
+  </div>
+
+  <div class="col-xs-12">
+    <app-improvement></app-improvement>
+  </div>
+</div>

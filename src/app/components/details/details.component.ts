@@ -1,4 +1,10 @@
 import {Component, OnInit} from '@angular/core';
+import {BehaviorSubject} from 'rxjs';
+import {Country} from '../../shared/entities/country.entity';
+import {ActivatedRoute, Router} from '@angular/router';
+import {CountriesService} from '../../shared/services/countries.service';
+import {flatMap} from 'rxjs/operators';
+import {ScrollTopService} from '../../shared/services/scroll-top.service';
 
 @Component({
   selector: 'app-details',
@@ -7,10 +13,31 @@ import {Component, OnInit} from '@angular/core';
 })
 export class DetailsComponent implements OnInit {
 
-  constructor() {
+  public country: BehaviorSubject<Country> = new BehaviorSubject<Country>(undefined);
+
+
+  constructor(private activatedRoute: ActivatedRoute,
+              private countriesService: CountriesService,
+              private router: Router,
+              private scrollTopService: ScrollTopService) {
   }
 
   ngOnInit() {
+    this.activatedRoute.params.pipe(
+      flatMap((params) => this.countriesService.getCountryById(params['id']))
+    ).subscribe(
+      (country: Country) => this.country.next(country)
+    );
+
+    this.country.subscribe(
+      (country: Country) => {
+        if (country === null) {
+          this.router.navigate(['cannot-found-country']);
+        }
+      }
+    );
+
+    this.scrollTopService.setScrollTop();
   }
 
 }

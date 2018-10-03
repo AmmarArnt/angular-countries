@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Country} from '../../../shared/entities/country.entity';
 
 @Component({
   selector: 'app-facts',
@@ -6,6 +7,8 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./facts.component.scss']
 })
 export class FactsComponent implements OnInit {
+
+  @Input() country: Country;
 
   constructor() {
   }
