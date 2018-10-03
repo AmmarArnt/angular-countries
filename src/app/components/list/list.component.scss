@@ -1,0 +1,40 @@
+@import './../../../styles/utils/variables';
+
+.list-frame {
+  padding: 0;
+  margin: 0 auto;
+  max-width: 768px;
+}
+
+.list-card {
+  padding: 0;
+}
+
+.list-table {
+  width: 100%;
+}
+
+.list-table--row {
+
+  &:nth-child(odd) {
+    background-color: $colorBlackLightest;
+  }
+
+  &:hover {
+    background-color: $colorPrimary;
+    cursor: pointer;
+
+    td {
+      color: $colorWhite;
+    }
+  }
+
+  &:focus {
+    outline-color: $colorPrimaryDark;
+  }
+}
+
+.list-table--flag {
+  margin-right: 1.5rem;
+  width: 2.5rem;
+}
