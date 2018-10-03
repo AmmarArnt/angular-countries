@@ -1,3 +1,8 @@
-<p>
-  map works!
-</p>
+<mat-card *ngIf="latitude != null && latitude != null" class="map-card">
+  <mat-card-content>
+    <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom" [styles]="mapStyle" class="map">
+      <agm-marker [latitude]="latitude" [longitude]="longitude"
+                  [iconUrl]="icon"></agm-marker>
+    </agm-map>
+  </mat-card-content>
+</mat-card>

@@ -3,6 +3,8 @@ import {BrowserModule} from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 
+import {AgmCoreModule} from '@agm/core';
+
 import {AppComponent} from './app.component';
 import {ListComponent} from './components/list/list.component';
 import {DetailsComponent} from './components/details/details.component';
@@ -16,6 +18,7 @@ import {MaterialDesignModule} from './shared/module/material-design.module';
 import {AppRoutingModule} from './shared/module/app-routing.module';
 import {HeaderComponent} from './components/header/header.component';
 import {SocialMediaModule} from './shared/social-media/social-media.module';
+import {googleMapApiKey} from './shared/constants/map';
 
 @NgModule({
   declarations: [
@@ -36,7 +39,11 @@ import {SocialMediaModule} from './shared/social-media/social-media.module';
     HttpClientModule,
     MaterialDesignModule,
     AppRoutingModule,
-    SocialMediaModule
+    SocialMediaModule,
+    AgmCoreModule.forRoot({
+      apiKey: googleMapApiKey,
+      language: 'en'
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]
