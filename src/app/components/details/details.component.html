@@ -1,19 +1,19 @@
 <div class="row">
 
-  <div class="col-xs-12">
+  <div class="col-xs-12 col-sm-5 col-md-6 col-lg-3">
     <app-facts [country]="country | async"></app-facts>
   </div>
 
-  <div class="col-xs-12">
+  <div class="col-xs-12 col-sm-7 col-md-6 col-lg-6">
     <app-map [country]="country | async"></app-map>
   </div>
 
-  <div class="col-xs-12">
+  <div class="col-xs-12 col-sm-5 col-md-6 col-lg-3">
     <app-flag [country]="country | async"></app-flag>
     <app-social-media></app-social-media>
   </div>
 
-  <div class="col-xs-12">
+  <div class="col-xs-12 col-sm-7 col-md-6 col-md-offset-0 col-lg-6 col-lg-offset-3">
     <app-improvement></app-improvement>
   </div>
 </div>
