@@ -2,7 +2,14 @@
   <mat-card-content>
     <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom" [styles]="mapStyle" class="map">
       <agm-marker [latitude]="latitude" [longitude]="longitude"
-                  [iconUrl]="icon"></agm-marker>
+                  [iconUrl]="icon" *ngIf="icon"></agm-marker>
+      <agm-polygon *ngFor='let path of border?.coordinates'
+                   [strokeColor]="'#b90f16'"
+                   [fillColor]="'#b90f16'"
+                   [fillOpacity]="0.5"
+                   [strokeWeight]="4"
+                   [paths]="path">
+      </agm-polygon>
     </agm-map>
   </mat-card-content>
 </mat-card>

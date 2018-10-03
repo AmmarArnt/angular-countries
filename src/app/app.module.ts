@@ -18,7 +18,7 @@ import {MaterialDesignModule} from './shared/module/material-design.module';
 import {AppRoutingModule} from './shared/module/app-routing.module';
 import {HeaderComponent} from './components/header/header.component';
 import {SocialMediaModule} from './shared/social-media/social-media.module';
-import {googleMapApiKey} from './shared/constants/map';
+import {googleCloudApiKey} from './shared/constants/map';
 
 @NgModule({
   declarations: [
@@ -41,7 +41,7 @@ import {googleMapApiKey} from './shared/constants/map';
     AppRoutingModule,
     SocialMediaModule,
     AgmCoreModule.forRoot({
-      apiKey: googleMapApiKey,
+      apiKey: googleCloudApiKey,
       language: 'en'
     }),
   ],

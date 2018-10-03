@@ -1,4 +1,8 @@
+import {BorderCoordinates} from './border-coordinates.entity';
+
 export class Country {
+
+  border: BorderCoordinates = undefined;
 
   constructor(
     public name: string,

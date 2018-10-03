@@ -2,7 +2,9 @@ export const iconRed = '/assets/icons/location_on_red.svg';
 
 export const zoomLevels = [9984670, 7692024, 301336, 147570, 51209, 10452, 1104];
 
-export const googleMapApiKey = 'AIzaSyB_xMwpAUkW8WXOvgurLYvKj1_HEFaRlDM\n';
+export const googleCloudApiKey = 'xxx';
+
+export const fusionTableName = '17mMrmy5DaEPNlPabZeKrTmY3e8cP7-qCFrrFyxk';
 
 export const googleMapStyle = [
   {
