@@ -1,29 +1,17 @@
 @import './../../../../styles/utils/variables';
 
-.facts-card--form-control {
-  .mat-input-element:disabled {
-    color: $colorBlack;
-  }
-
-  /* TODO: ::ng-deep is deprecated */
-  ::ng-deep {
-    .mat-form-field-label {
-      color: $colorBlack;
-    }
-    .mat-form-field-underline {
-      background-image: none;
-    }
-  }
-}
-
-.facts-card--list-label {
+.facts-card--label {
   font-size: 11px;
 }
 
-.facts-card--list-item {
+.facts-card--item {
+  margin: 4px 0 15px 0;
+}
+
+.facts-card--item__list {
   align-content: center;
   align-items: center;
-  margin: 0 0 15px 0;
+  margin-top: 0;
 
   /* TODO: ::ng-deep is deprecated */
   ::ng-deep {

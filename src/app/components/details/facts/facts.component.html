@@ -9,28 +9,31 @@
 
   <mat-card-content class="app-card--content">
 
-    <mat-form-field class="facts-card--form-control">
-      <input matInput placeholder="Population" disabled value="{{country?.population | number}}">
-    </mat-form-field>
-
-    <mat-form-field class="facts-card--form-control">
-      <input matInput placeholder="Region" disabled value="{{country?.region}}">
-    </mat-form-field>
-
-    <mat-form-field class="facts-card--form-control">
-      <input matInput placeholder="Capital" disabled value="{{country?.capital}}">
-    </mat-form-field>
+    <section>
+      <label class="facts-card--label">Population</label>
+      <div class="facts-card--item">{{country?.population | number}}</div>
+    </section>
 
     <section>
-      <label class="facts-card--list-label">{{country?.currencies.length === 1 ? 'Curreny' : 'Currencies'}}</label>
-      <div class="facts-card--list-item">
+      <label class="facts-card--label">Region</label>
+      <div class="facts-card--item">{{country?.region}}</div>
+    </section>
+
+    <section>
+      <label class="facts-card--label">Capital</label>
+      <div class="facts-card--item">{{country?.capital}}</div>
+    </section>
+
+    <section>
+      <label class="facts-card--label">{{country?.currencies.length === 1 ? 'Curreny' : 'Currencies'}}</label>
+      <div class="facts-card--item facts-card--item__list">
         <mat-checkbox *ngFor="let curreny of country?.currencies" [ngModel]="true" disabled>{{curreny}}</mat-checkbox>
       </div>
     </section>
 
     <section>
-      <label class="facts-card--list-label">{{country?.timezones.length === 1 ? 'Timezone' : 'Timezones'}}</label>
-      <div class="facts-card--list-item">
+      <label class="facts-card--label">{{country?.timezones.length === 1 ? 'Timezone' : 'Timezones'}}</label>
+      <div class="facts-card--item facts-card--item__list">
         <mat-checkbox *ngFor="let timezone of country?.timezones" [ngModel]="true" disabled>{{timezone}}</mat-checkbox>
       </div>
     </section>
