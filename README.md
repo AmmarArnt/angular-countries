@@ -37,4 +37,5 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 * Preloading border coordinates
 * Pagination for countries list
 * Email validation
+* Loading animation while loading countries data
 

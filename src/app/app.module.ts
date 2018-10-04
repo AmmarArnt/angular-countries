@@ -4,6 +4,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 
 import {AgmCoreModule} from '@agm/core';
+import {JwSocialButtonsModule} from 'jw-angular-social-buttons';
 
 import {AppComponent} from './app.component';
 import {ListComponent} from './components/list/list.component';
@@ -17,7 +18,6 @@ import {SocialMediaComponent} from './components/details/social-media/social-med
 import {MaterialDesignModule} from './shared/module/material-design.module';
 import {AppRoutingModule} from './shared/module/app-routing.module';
 import {HeaderComponent} from './components/header/header.component';
-import {SocialMediaModule} from './shared/social-media/social-media.module';
 import {googleCloudApiKey} from './shared/constants/map';
 
 @NgModule({
@@ -39,7 +39,7 @@ import {googleCloudApiKey} from './shared/constants/map';
     HttpClientModule,
     MaterialDesignModule,
     AppRoutingModule,
-    SocialMediaModule,
+    JwSocialButtonsModule,
     AgmCoreModule.forRoot({
       apiKey: googleCloudApiKey,
       language: 'en'
