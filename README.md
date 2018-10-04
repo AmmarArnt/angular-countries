@@ -38,4 +38,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 * Pagination for countries list
 * Email validation
 * Loading animation while loading countries data
+* Write unit & integration tests for all components & services
+  * For the component `error-message.component.ts`, the tests are exemplary ready under `src/app/components/error-message/error-message.component.spec.ts`.
+* Write E2E tests
 
