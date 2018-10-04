@@ -1,11 +1,30 @@
+/**
+ * Location marker: path to red icon
+ */
 export const iconRed = '/assets/icons/location_on_red.svg';
 
+/**
+ * Boundaries of land area to defining the zoom levels
+ */
 export const zoomLevels = [9984670, 7692024, 301336, 147570, 51209, 10452, 1104];
 
+/**
+ * Google Cloud API Key
+ *
+ * The key needs the permissions for:
+ * * Map JavaScript API
+ * * Fusion Table API
+ */
 export const googleCloudApiKey = 'xxx';
 
+/**
+ * Fusion table name to load countries border
+ */
 export const fusionTableName = '17mMrmy5DaEPNlPabZeKrTmY3e8cP7-qCFrrFyxk';
 
+/**
+ * Styling Google Maps in white and gray colors
+ */
 export const googleMapStyle = [
   {
     'elementType': 'geometry',
