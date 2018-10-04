@@ -1,35 +1,21 @@
 import {async, ComponentFixture, fakeAsync, TestBed, tick} from '@angular/core/testing';
-import {ErrorMessageComponent} from './error-message.component';
+import {DebugElement} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {ErrorMessage} from '../../shared/entities/error-message.entity';
-import {Component, DebugElement} from '@angular/core';
-import {APP_DEFAULT_ERROR_MESSAGE} from '../../shared/constants/error-messages';
 import {By} from '@angular/platform-browser';
+
+import {ErrorMessageComponent} from './error-message.component';
+import {APP_DEFAULT_ERROR_MESSAGE} from '../../shared/constants/error-messages';
+import {
+  defaultMessage,
+  MockActivatedRoute,
+  MockMatModule,
+  sampleMessage
+} from '../../shared/test-utils/mocks';
 
 
 describe('ErrorMessageComponent', () => {
   let spyOnSubscribe: jasmine.Spy;
 
-  class MockActivatedRoute {
-    data = {
-      subscribe() {
-      }
-    };
-  }
-
-  const defaultMessage: ErrorMessage = {
-    icon: 'default-icon',
-    button: 'default-button',
-    headline: 'default-headline',
-    reloadApplication: false
-  };
-
-  const sampleMessage: ErrorMessage = {
-    icon: undefined,
-    button: 'sample-button',
-    headline: 'sample-headline',
-    reloadApplication: true
-  };
 
   describe('[unit tests]', () => {
     let component: ErrorMessageComponent;
@@ -121,34 +107,6 @@ describe('ErrorMessageComponent', () => {
 
   describe('[integration tests]', () => {
 
-    @Component({
-      selector: 'mat-card',
-      template: '<ng-content></ng-content>'
-    })
-    class MockMatCardComponent {
-    }
-
-    @Component({
-      selector: 'mat-card-header',
-      template: '<ng-content></ng-content>'
-    })
-    class MockMatCardHeaderComponent {
-    }
-
-    @Component({
-      selector: 'mat-card-content',
-      template: '<ng-content></ng-content>'
-    })
-    class MockMatCardContentComponent {
-    }
-
-    @Component({
-      selector: 'mat-icon',
-      template: '<ng-content></ng-content>'
-    })
-    class MockMatIconComponent {
-    }
-
     let component: ErrorMessageComponent;
     let fixture: ComponentFixture<ErrorMessageComponent>;
     let debugElement: DebugElement;
@@ -157,11 +115,8 @@ describe('ErrorMessageComponent', () => {
       TestBed.configureTestingModule({
         declarations: [
           ErrorMessageComponent,
-          MockMatCardComponent,
-          MockMatCardHeaderComponent,
-          MockMatCardContentComponent,
-          MockMatIconComponent
         ],
+        imports: [MockMatModule],
         providers: [
           {provide: ActivatedRoute, useClass: MockActivatedRoute},
           {provide: APP_DEFAULT_ERROR_MESSAGE, useValue: defaultMessage},
