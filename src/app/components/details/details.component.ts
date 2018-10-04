@@ -13,8 +13,6 @@ import {ScrollTopService} from '../../shared/services/scroll-top.service';
 })
 export class DetailsComponent implements OnInit, OnDestroy {
 
-  // TODO: document code
-
   /**
    * Data set for display a country
    */
