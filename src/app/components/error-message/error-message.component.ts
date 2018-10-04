@@ -1,13 +1,16 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, Inject, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ErrorMessage} from '../../shared/entities/error-message.entity';
 import {Subscription} from 'rxjs';
-import {errorMessageCannotFindPage} from '../../shared/constants/error-messages';
+import {APP_DEFAULT_ERROR_MESSAGE, errorMessageCannotFindPage} from '../../shared/constants/error-messages';
 
 @Component({
   selector: 'app-error-message',
   templateUrl: './error-message.component.html',
-  styleUrls: ['./error-message.component.scss']
+  styleUrls: ['./error-message.component.scss'],
+  providers: [
+    {provide: APP_DEFAULT_ERROR_MESSAGE, useValue: errorMessageCannotFindPage}
+  ]
 })
 export class ErrorMessageComponent implements OnInit, OnDestroy {
 
@@ -24,8 +27,9 @@ export class ErrorMessageComponent implements OnInit, OnDestroy {
   /**
    * Constructor
    * @param activatedRoute
+   * @param defaultErrorMessage Default error message: Cannot find page
    */
-  constructor(private activatedRoute: ActivatedRoute) {
+  constructor(private activatedRoute: ActivatedRoute, @Inject(APP_DEFAULT_ERROR_MESSAGE) private defaultErrorMessage: ErrorMessage) {
   }
 
   /**
@@ -35,10 +39,10 @@ export class ErrorMessageComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.subscriptionData = this.activatedRoute.data.subscribe(
       (data) => {
-        if (data != null) {
+        if (data != null && data.message != null) {
           this.message = data.message;
         } else {
-          this.message = errorMessageCannotFindPage;
+          this.message = this.defaultErrorMessage;
         }
       }
     );

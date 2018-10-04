@@ -1,4 +1,10 @@
 import {ErrorMessage} from '../entities/error-message.entity';
+import {InjectionToken} from '@angular/core';
+
+/**
+ * TOKEN for default error message: Cannot find page
+ */
+export const APP_DEFAULT_ERROR_MESSAGE = new InjectionToken<ErrorMessage>('app.error-message-cannot-find-page');
 
 /**
  * Cannot find page - error message
