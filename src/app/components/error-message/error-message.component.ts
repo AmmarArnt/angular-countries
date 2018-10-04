@@ -11,16 +11,29 @@ import {errorMessageCannotFindPage} from '../../shared/constants/error-messages'
 })
 export class ErrorMessageComponent implements OnInit, OnDestroy {
 
+  /**
+   * Error message to display at this page
+   */
   message: ErrorMessage;
 
-  subscription: Subscription;
+  /**
+   * Subscription for routing data (needed for clean up)
+   */
+  subscriptionData: Subscription;
 
-  constructor(private activatedRoute: ActivatedRoute, private router: Router) {
-
+  /**
+   * Constructor
+   * @param activatedRoute
+   */
+  constructor(private activatedRoute: ActivatedRoute) {
   }
 
+  /**
+   * Initialisation
+   * * Load error message from routing data.
+   */
   ngOnInit() {
-    this.subscription = this.activatedRoute.data.subscribe(
+    this.subscriptionData = this.activatedRoute.data.subscribe(
       (data) => {
         if (data != null) {
           this.message = data.message;
@@ -31,9 +44,12 @@ export class ErrorMessageComponent implements OnInit, OnDestroy {
     );
   }
 
+  /**
+   * Clean up
+   */
   ngOnDestroy() {
-    if (this.subscription != null) {
-      this.subscription.unsubscribe();
+    if (this.subscriptionData != null) {
+      this.subscriptionData.unsubscribe();
     }
   }
 

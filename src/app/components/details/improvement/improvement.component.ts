@@ -15,6 +15,13 @@ export class ImprovementComponent implements OnInit {
   ngOnInit() {
   }
 
+  /**
+   * Action after users submit the form:
+   * * Check if the form controls are valid.
+   * * Show a message to user.
+   * * Resetting form after a valid input.
+   * @param form
+   */
   onSubmit(form: NgForm) {
     const info = form.valid ? 'Thank you for message!' : 'The form is invalid.';
     this.openSnackBar(info);
@@ -26,6 +33,11 @@ export class ImprovementComponent implements OnInit {
     }
   }
 
+  /**
+   * Open a info message for user.
+   * @param message Message displayed to user
+   * @param action Name of close button.
+   */
   private openSnackBar(message: string, action: string = 'Close') {
     this.snackBar.open(message, action, {
       duration: 3000,

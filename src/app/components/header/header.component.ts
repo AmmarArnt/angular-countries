@@ -9,28 +9,49 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class HeaderComponent implements OnInit, OnDestroy {
 
+  /**
+   * Insert search keyword
+   */
   searchTerm: string;
 
-  private queryParamsSubscription: Subscription;
+  /**
+   * Subscription for url query params (needed for clean up)
+   */
+  private subscriptionQueryParams: Subscription;
 
+  /**
+   * Constructor
+   * @param router
+   * @param activatedRoute
+   */
   constructor(private router: Router, private activatedRoute: ActivatedRoute) {
   }
 
+  /**
+   * Initialisation
+   * * Update search term, if query params has been changed.
+   */
   ngOnInit() {
-    this.queryParamsSubscription = this.activatedRoute.queryParams.subscribe(
+    this.subscriptionQueryParams = this.activatedRoute.queryParams.subscribe(
       (queryParams) => {
         this.searchTerm = queryParams['search'];
       }
     );
   }
 
+  /**
+   * Search action: Update query params and navigate to list page.
+   */
   onSearch() {
     this.router.navigate(['countries'], {queryParams: {'search': this.searchTerm}});
   }
 
+  /**
+   * Clean up
+   */
   ngOnDestroy() {
-    if (this.queryParamsSubscription != null) {
-      this.queryParamsSubscription.unsubscribe();
+    if (this.subscriptionQueryParams != null) {
+      this.subscriptionQueryParams.unsubscribe();
     }
   }
 
