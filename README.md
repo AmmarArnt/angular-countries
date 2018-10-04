@@ -23,7 +23,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 ## Challenges
 
 * Providing an accurate map section - Solution: Calculate the zoom level depending on country area.
-* Highlighting a country is feature request for Google Maps API (URL). There was a need to find a data provider for countries borders - Solution: Using a Fusion Table API (not all countries included).
+* Highlighting a country is feature request for Google Maps API (https://issuetracker.google.com/issues/35816953). There was a need to find a data provider for countries borders - Solution: Using a Fusion Table API (not all countries included).
 * Main color usage in a decent way
 
 ## Further improvements

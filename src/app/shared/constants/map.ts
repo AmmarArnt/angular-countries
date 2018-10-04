@@ -11,7 +11,15 @@ export const googleMapStyle = [
     'elementType': 'geometry',
     'stylers': [
       {
-        'color': '#6F6F6F'
+        'color': '#f5f5f5'
+      }
+    ]
+  },
+  {
+    'elementType': 'labels.icon',
+    'stylers': [
+      {
+        'visibility': 'off'
       }
     ]
   },
@@ -19,7 +27,7 @@ export const googleMapStyle = [
     'elementType': 'labels.text.fill',
     'stylers': [
       {
-        'color': '#fafafa'
+        'color': '#616161'
       }
     ]
   },
@@ -27,13 +35,31 @@ export const googleMapStyle = [
     'elementType': 'labels.text.stroke',
     'stylers': [
       {
-        'color': '#6F6F6F'
+        'color': '#f5f5f5'
       }
     ]
   },
   {
     'featureType': 'administrative',
     'elementType': 'geometry',
+    'stylers': [
+      {
+        'visibility': 'off'
+      }
+    ]
+  },
+  {
+    'featureType': 'administrative.country',
+    'elementType': 'geometry.fill',
+    'stylers': [
+      {
+        'visibility': 'off'
+      }
+    ]
+  },
+  {
+    'featureType': 'administrative.land_parcel',
+    'elementType': 'labels',
     'stylers': [
       {
         'visibility': 'off'
@@ -68,6 +94,15 @@ export const googleMapStyle = [
   },
   {
     'featureType': 'poi',
+    'elementType': 'labels.text',
+    'stylers': [
+      {
+        'visibility': 'off'
+      }
+    ]
+  },
+  {
+    'featureType': 'poi',
     'elementType': 'labels.text.fill',
     'stylers': [
       {
@@ -89,7 +124,7 @@ export const googleMapStyle = [
     'elementType': 'labels.text.fill',
     'stylers': [
       {
-        'color': '#898989'
+        'color': '#9e9e9e'
       }
     ]
   },
@@ -98,7 +133,7 @@ export const googleMapStyle = [
     'elementType': 'geometry',
     'stylers': [
       {
-        'color': '#BCBCBC'
+        'color': '#ffffff'
       }
     ]
   },
@@ -124,7 +159,16 @@ export const googleMapStyle = [
     'elementType': 'labels.text.fill',
     'stylers': [
       {
-        'color': '#898989'
+        'color': '#757575'
+      }
+    ]
+  },
+  {
+    'featureType': 'road.highway',
+    'elementType': 'geometry',
+    'stylers': [
+      {
+        'color': '#dadada'
       }
     ]
   },
@@ -142,7 +186,7 @@ export const googleMapStyle = [
     'elementType': 'labels.text.fill',
     'stylers': [
       {
-        'color': '#898989'
+        'color': '#616161'
       }
     ]
   },
@@ -156,10 +200,19 @@ export const googleMapStyle = [
   },
   {
     'featureType': 'road.local',
+    'elementType': 'labels',
+    'stylers': [
+      {
+        'visibility': 'off'
+      }
+    ]
+  },
+  {
+    'featureType': 'road.local',
     'elementType': 'labels.text.fill',
     'stylers': [
       {
-        'color': '#898989'
+        'color': '#9e9e9e'
       }
     ]
   },
@@ -194,7 +247,7 @@ export const googleMapStyle = [
     'elementType': 'geometry',
     'stylers': [
       {
-        'color': '#F0F0F0'
+        'color': '#c9c9c9'
       }
     ]
   },
@@ -203,16 +256,7 @@ export const googleMapStyle = [
     'elementType': 'labels.text.fill',
     'stylers': [
       {
-        'color': '#6F6F6F'
-      }
-    ]
-  },
-  {
-    'featureType': 'water',
-    'elementType': 'labels.text.stroke',
-    'stylers': [
-      {
-        'color': '#F0F0F0'
+        'color': '#9e9e9e'
       }
     ]
   }
