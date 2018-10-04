@@ -9,12 +9,12 @@
 
   <mat-card-content class="app-card--content">
 
-    <a mat-raised-button color="primary" href="/" *ngIf="message?.reloadApplication; else elseCase">
+    <a mat-stroked-button href="/" *ngIf="message?.reloadApplication; else elseCase">
       {{message?.button}}
     </a>
 
     <ng-template #elseCase>
-      <button mat-raised-button color="primary" routerLink="/">
+      <button mat-stroked-button routerLink="/">
         {{message?.button}}
       </button>
     </ng-template>
