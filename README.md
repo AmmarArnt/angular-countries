@@ -32,8 +32,9 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
   * Retry
   * Disable search, if backend cannot be reached.
 * Offline capability (service workers)
-* Some false map section (small island countries)
-* Some false markers (Antarctica & San Marino)
+  * Caching flag images
+* Few faulty representations of the map section (small island countries)
+* A few incorrect positioning of the marking (e. g. Antarctica & San Marino)
 * Preloading border coordinates
 * Pagination for countries list
 * Email validation
