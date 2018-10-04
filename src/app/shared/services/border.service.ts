@@ -7,15 +7,26 @@ import {LatLngLiteral} from '../entities/lat-lng-literal.entity';
 import {endpointFusionTable} from '../constants/endpoints';
 import {googleCloudApiKey, fusionTableName} from '../constants/map';
 
+/**
+ * Providing countries border
+ */
 @Injectable({
   providedIn: 'root'
 })
 export class BorderService {
 
-
+  /**
+   * Constructor
+   * @param http
+   */
   constructor(private http: HttpClient) {
   }
 
+  /**
+   * Load border for a country
+   * @param iso Alpha code (3 characters)
+   * @return border for a country or <code>null</code> if there was no appropriate data set
+   */
   getBorder(iso: string): Observable<BorderCoordinates> {
     const sql = `SELECT geometry FROM ${fusionTableName} WHERE iso_a3 = '${iso}'`;
 
@@ -24,56 +35,82 @@ export class BorderService {
     );
   }
 
+  /**
+   * Helper method
+   *
+   * Extract border coordinates from a raw JSON object.
+   * A border is described by one or multiply polygons.
+   *
+   * Sample response: border described by one polygon
+   *
+   * @param obj raw JSON object
+   */
   private extractCoordinates(obj: Object): BorderCoordinates {
 
+    // Is result empty?
     if (obj == null) {
       return null;
     }
 
+    // Is there a result row?
     if (!obj.hasOwnProperty('rows') || obj['rows'].length === 0) {
       return null;
     }
 
-    const temp = obj['rows'][0];
+    // Select the first result row
+    const firstResultRow = obj['rows'][0];
 
-    if (temp == null || temp.length === 0) {
+    // Check if there a column for this result
+    if (firstResultRow == null || firstResultRow.length === 0) {
       return null;
     }
 
-    const result = temp[0];
+    // Select first column
+    const result = firstResultRow[0];
 
-
+    // Prepare border structure
     const border: BorderCoordinates = {
       coordinates: [],
     };
 
+    // Case: Multiply polygons describe the border
     if (result.type === 'GeometryCollection') {
       for (const polygon of result.geometries) {
         if (polygon.type === 'Polygon') {
-          const path = this.extractPath(polygon.coordinates);
+          const path = this.extractCoordinatesPath(polygon.coordinates[0]);
           border.coordinates.push(path);
         }
       }
-    } else if (result.geometry.type === 'Polygon') {
-      const path = this.extractPath(result.geometry.coordinates);
+    }
+
+    // Case: One polygon describes the border
+    else if (result.geometry.type === 'Polygon') {
+      const path = this.extractCoordinatesPath(result.geometry.coordinates[0]);
       border.coordinates.push(path);
     }
 
+    // Case: Known description => use the icon as marker
 
+    // Return border
     return border;
 
   }
 
-  private extractPath(res: any) {
-    const ret = [];
-    for (const path of res) {
-      const coordinates = [];
-      for (const coordinate of path) {
-        const latLngLiteral: LatLngLiteral = {lat: coordinate[1], lng: coordinate[0]};
-        coordinates.push(latLngLiteral);
-      }
-      ret.push(coordinates);
+  /**
+   * Helper method
+   *
+   * Extract border coordinates from one polygon.
+   *
+   * @param polygon polygon with raw data
+   *
+   * @return border coordinates from one polygon
+   */
+  private extractCoordinatesPath(polygon: any): LatLngLiteral[] {
+    const coordinates: LatLngLiteral[] = [];
+    for (const coordinate of polygon) {
+      const latLngLiteral: LatLngLiteral = {lat: coordinate[1], lng: coordinate[0]};
+      coordinates.push(latLngLiteral);
     }
-    return ret;
+    return coordinates;
   }
 }

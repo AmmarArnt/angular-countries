@@ -8,7 +8,6 @@ import {
   MatIconModule,
   MatButtonModule,
   MatFormFieldModule,
-  MatCheckboxModule,
   MatInputModule,
   MatSnackBarModule
 } from '@angular/material';

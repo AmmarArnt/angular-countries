@@ -3,7 +3,11 @@ import {NavigationEnd, Router} from '@angular/router';
 import {isPlatformBrowser} from '@angular/common';
 
 /**
- * source: https://auralinna.blog/post/2018/scroll-to-top-on-angular-route-change
+ * Helper service:
+ *
+ * Scroll to top.
+ *
+ * Source: https://auralinna.blog/post/2018/scroll-to-top-on-angular-route-change
  */
 @Injectable({
   providedIn: 'root'
