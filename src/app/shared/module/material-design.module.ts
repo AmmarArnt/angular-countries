@@ -23,7 +23,6 @@ import {
     MatIconModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatCheckboxModule,
     MatInputModule,
     MatSnackBarModule
   ],
@@ -36,7 +35,6 @@ import {
     MatIconModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatCheckboxModule,
     MatInputModule,
     MatSnackBarModule
   ]

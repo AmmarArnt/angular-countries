@@ -26,15 +26,15 @@
 
     <section>
       <label class="facts-card--label">{{country?.currencies.length === 1 ? 'Curreny' : 'Currencies'}}</label>
-      <div class="facts-card--item facts-card--item__list">
-        <mat-checkbox *ngFor="let curreny of country?.currencies" [ngModel]="true" disabled>{{curreny}}</mat-checkbox>
+      <div class="facts-card--item">
+        <span *ngFor="let currency of country?.currencies">{{currency}}</span>
       </div>
     </section>
 
     <section>
       <label class="facts-card--label">{{country?.timezones.length === 1 ? 'Timezone' : 'Timezones'}}</label>
-      <div class="facts-card--item facts-card--item__list">
-        <mat-checkbox *ngFor="let timezone of country?.timezones" [ngModel]="true" disabled>{{timezone}}</mat-checkbox>
+      <div class="facts-card--item">
+        <span *ngFor="let timezone of country?.timezones">{{timezone}}</span>
       </div>
     </section>
 

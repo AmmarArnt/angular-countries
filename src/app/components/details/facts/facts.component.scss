@@ -8,32 +8,14 @@
   margin: 4px 0 15px 0;
 }
 
-.facts-card--item__list {
-  align-content: center;
-  align-items: center;
-  margin-top: 0;
+.facts-card--item span {
+  margin-right: 1em;
+  margin-bottom: 0.5em;
+  float: left;
+}
 
-  /* TODO: ::ng-deep is deprecated */
-  ::ng-deep {
-
-    .mat-checkbox-disabled {
-      .mat-checkbox-label {
-        color: $colorBlack;
-      }
-    }
-
-    .mat-checkbox-disabled.mat-checkbox-checked {
-      .mat-checkbox-background {
-        background-color: $colorBlack;
-      }
-    }
-
-    .mat-checkbox-inner-container {
-      display: none;
-    }
-  }
-
-  > * {
-    margin-right: 1em;
-  }
+.facts-card--item:last-child::after {
+  content: '';
+  display: block;
+  clear: both;
 }
