@@ -47,26 +47,13 @@ export class BorderService {
    */
   private extractCoordinates(obj: Object): BorderCoordinates {
 
-    // Is result empty?
-    if (obj == null) {
-      return null;
-    }
-
-    // Is there a result row?
-    if (!obj.hasOwnProperty('rows') || obj['rows'].length === 0) {
-      return null;
-    }
-
-    // Select the first result row
-    const firstResultRow = obj['rows'][0];
-
-    // Check if there a column for this result
-    if (firstResultRow == null || firstResultRow.length === 0) {
-      return null;
-    }
-
     // Select first column
-    const result = firstResultRow[0];
+    const result = this.selectSqlResult(obj);
+
+    // Ignore empty results
+    if (result == null) {
+      return null;
+    }
 
     // Prepare border structure
     const border: BorderCoordinates = {
@@ -94,6 +81,39 @@ export class BorderService {
     // Return border
     return border;
 
+  }
+
+  /**
+   * Helper method
+   *
+   * Returns first column of the first row, if these column exists.
+   *
+   * @param response raw JSON object
+   *
+   * @return First column of the first row or <code>null</code> if these column doesn't exists.
+   */
+  private selectSqlResult(response: Object): any {
+
+    // Is result empty?
+    if (response == null) {
+      return null;
+    }
+
+    // Is there a result row?
+    if (!response.hasOwnProperty('rows') || response['rows'].length === 0) {
+      return null;
+    }
+
+    // Select the first result row
+    const firstResultRow = response['rows'][0];
+
+    // Check if there a column for this result
+    if (firstResultRow == null || firstResultRow.length === 0) {
+      return null;
+    }
+
+    // Select first column
+    return firstResultRow[0];
   }
 
   /**
