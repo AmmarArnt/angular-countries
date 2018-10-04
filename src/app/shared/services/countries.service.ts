@@ -6,6 +6,7 @@ import {map} from 'rxjs/operators';
 
 import {Country} from '../entities/country.entity';
 import {endpointCountries} from '../constants/endpoints';
+import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,8 @@ export class CountriesService {
 
   loaded: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router
+  ) {
     this.http.get(endpointCountries).pipe(
       map((objs: Object[]) => objs.map(
         (item: Object) => Country.fromJson(item)
@@ -25,6 +27,9 @@ export class CountriesService {
       (list) => {
         this.loaded.next(true);
         this.list.next(list);
+      },
+      () => {
+        this.router.navigate(['/error', 'backend']);
       }
     );
 

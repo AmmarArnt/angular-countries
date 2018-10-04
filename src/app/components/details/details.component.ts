@@ -32,7 +32,7 @@ export class DetailsComponent implements OnInit {
     this.country.subscribe(
       (country: Country) => {
         if (country === null) {
-          this.router.navigate(['cannot-found-country']);
+          this.router.navigate(['/error', 'country']);
         }
       }
     );

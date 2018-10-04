@@ -8,7 +8,7 @@ import {AgmCoreModule} from '@agm/core';
 import {AppComponent} from './app.component';
 import {ListComponent} from './components/list/list.component';
 import {DetailsComponent} from './components/details/details.component';
-import {PageNotFoundComponent} from './components/page-not-found/page-not-found.component';
+import {ErrorMessageComponent} from './components/error-message/error-message.component';
 import {FactsComponent} from './components/details/facts/facts.component';
 import {FlagComponent} from './components/details/flag/flag.component';
 import {ImprovementComponent} from './components/details/improvement/improvement.component';
@@ -25,7 +25,7 @@ import {googleCloudApiKey} from './shared/constants/map';
     AppComponent,
     ListComponent,
     DetailsComponent,
-    PageNotFoundComponent,
+    ErrorMessageComponent,
     FactsComponent,
     FlagComponent,
     ImprovementComponent,

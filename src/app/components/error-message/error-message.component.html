@@ -1,0 +1,23 @@
+<mat-card class="app-card">
+
+  <mat-card-header class="app-header">
+    <h2 class="app-headline">
+      <mat-icon class="app-icon" *ngIf="message?.icon !== undefined">{{message?.icon}}</mat-icon>
+      {{message?.headline}}
+    </h2>
+  </mat-card-header>
+
+  <mat-card-content class="app-card--content">
+
+    <a mat-raised-button color="primary" href="/" *ngIf="message?.reloadApplication; else elseCase">
+      {{message?.button}}
+    </a>
+
+    <ng-template #elseCase>
+      <button mat-raised-button color="primary" routerLink="/">
+        {{message?.button}}
+      </button>
+    </ng-template>
+
+  </mat-card-content>
+</mat-card>
