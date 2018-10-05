@@ -1,5 +1,7 @@
 # Angular Countries
 
+List all countries of the world - provided by http://restcountries.eu
+
 **Demo:** http://angular-countries.sebastiandorn.com
 
 
